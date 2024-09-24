@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI計算機</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+    <h1>BMI計算機</h1>
+    <form id="bmiForm">
+        <label for="weight">体重 (kg):</label>
+        <input type="number" id="weight" name="weight" required>
+        <br>
+        <label for="height">身長 (m):</label>
+        <input type="number" id="height" name="height" step="0.01" required>
+        <br>
+        <button type="button" onclick="calculateBMI()">計算</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculateBMI() {
+            let weight = document.getElementById('weight').value;
+            let height = document.getElementById('height').value;
+
+            if (weight > 0 && height > 0) {
+                let bmi = weight / (height * height);
+                document.getElementById('result').innerText = `あなたのBMIは ${bmi.toFixed(2)} です。`;
+            } else {
+                document.getElementById('result').innerText = '正しい値を入力してください。';
+            }
+        }
+    </script>
+</body>
+</html>
